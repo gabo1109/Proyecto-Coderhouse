@@ -5,5 +5,7 @@ app_name = 'Inicio'
 
 urlpatterns = [
     path('', views.inicio, name='Inicio'),
-    path('gatos/crear/', views.crear_gato, name='crear_gato')
+    path('informe/', views.crear_informe, name='crear_informe'),
+    path('busqueda/', views.buscar_informe, name='buscar_informe'),
+    path('accidente', views.accidentes, name='accidentes')
 ]
