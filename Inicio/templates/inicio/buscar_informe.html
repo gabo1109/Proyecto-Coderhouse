@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title> Sector Ricardo </title> 
+<title> Busqueda </title> 
 {% endblock title_head %}
 
 {% block h1_header %}
-Ricardo's History
+BUSCAR INFORME
 {% endblock h1_header %}
+
+{% block h2_header %}
+<form action="" method="get">
+  <table>{{formulario}}</table>
+  <buttton>Buscar</buttton>
+</form>
+{% endblock h2_header %}
