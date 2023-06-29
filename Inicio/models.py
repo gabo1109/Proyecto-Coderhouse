@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Informe(models.Model):
-    numero_caso = models.IntegerField(default = 0)
+    numero_caso = models.IntegerField()
     fecha = models.DateField(null = True)
     locacion = models.CharField(max_length = 100)
     tipo_avion = models.CharField(max_length = 100)

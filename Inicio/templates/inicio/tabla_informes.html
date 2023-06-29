@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title> Busqueda </title> 
+<title> Tabla </title> 
 {% endblock title_head %}
 
 {% block h1_header %}
-BUSCAR INFORME
+LISTA DE INFORMES
 {% endblock h1_header %}
 
 {% block h2_header %}
-<form action="" method="get">
-  <table>{{formulario}}</table>
-  <button>Buscar</button>
-</form>
+<button><a class="navbar-brand" href={% url 'Inicio:buscar_informe' %}>Buscar Informe</a></button>
 {% endblock h2_header %}
