@@ -10,3 +10,10 @@ class CrearInformeFormulario(forms.Form):
 
 class BuscarInformeFormulario(forms.Form):
     numero_caso = forms.IntegerField(label = "Numero de caso", required = False)
+
+class FormularioContacto(forms.Form):
+    nombre = forms.CharField(label = "Nombre", max_length = 100, required = True)
+    email = forms.CharField(label = "Email", max_length = 100, required = True)
+    mensaje = forms.CharField(label = "Mensaje", required = True)
+    telefono = forms.CharField(label = "Telefono", max_length = 50, required = True)
+    fecha = forms.DateTimeField(required = True)

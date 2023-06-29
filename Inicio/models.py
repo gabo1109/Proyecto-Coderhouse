@@ -10,6 +10,13 @@ class Informe(models.Model):
     causa_accidente = models.CharField(max_length = 1000)
     descripcion_accidente = models.CharField(max_length = 1000)
 
+class Contacto(models.Model):
+    nombre = models.CharField(max_length = 100)
+    email = models.CharField(max_length = 100)
+    mensaje = models.CharField(max_length = 1000)
+    telefono = models.CharField(max_length = 50)
+    fecha = models.DateTimeField(null = True)
+
 
 #Por cada cambio que se haga en los modelos hay que hacer una migracion
 #Escribir en consola 'python manage.py makemigrations' y despues escribir 'python manage.py migrate'

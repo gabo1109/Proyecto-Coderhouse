@@ -14,7 +14,7 @@ INFORMAR ACCIDENTE
 <form action="" method="post">
     {% csrf_token %}
     <table>
-         {{formulario}}
+         {{formulario.as_p}}
     </table>
     <button>Informar</button>
 </form>

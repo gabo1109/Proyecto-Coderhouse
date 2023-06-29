@@ -5,11 +5,14 @@ La Página de Informes de Accidentes Aéreos es una aplicación web que permite 
 # Funcionalidades
 
 La página de informes de accidentes aéreos ofrece las siguientes funcionalidades:
--   Inicio: La ruta /inicio muestra la página de inicio de la aplicación.
 
--   Crear Informe: La ruta /crear-informe permite a los usuarios completar un formulario para crear un nuevo informe de accidente aéreo. Los campos del formulario incluyen el número de caso, la fecha, la ubicación, el tipo de avión, la causa del accidente y una descripción del accidente.
+    -Inicio: La ruta /inicio muestra la página de inicio de la aplicación.
 
--   Búsqueda de Informe: La ruta /buscar-informe muestra un formulario que permite a los usuarios buscar informes de accidentes aéreos existentes. Los campos del formulario incluyen criterios como el número de caso, la fecha, la ubicación, el tipo de avión, etc.
+    -Crear Informe: La ruta /crear-informe permite a los usuarios completar un formulario para crear un nuevo informe de accidente aéreo. Los campos del formulario incluyen el número de caso, la fecha, la ubicación, el tipo de avión, la causa del accidente y una descripción del accidente.
+
+    -Búsqueda de Informe: La ruta /buscar-informe muestra un formulario que permite a los usuarios buscar informes de accidentes aéreos existentes. Los campos del formulario incluyen criterios como el número de caso, la fecha, la ubicación, el tipo de avión, etc.
+
+    -Contacto: La ruta /contacto permite a los usuarios ponerse en contacto con el equipo de la página de informes de accidentes aéreos a través de un formulario de contacto.
 
 # Orden de Prueba y Funcionalidades
 
@@ -20,6 +23,8 @@ Para probar y explorar las funcionalidades de la página de informes de accident
     -Crear Informe: Accede a la ruta /crear-informe y completa el formulario de creación de informe con datos válidos. Verifica que al enviar el formulario, se muestre un mensaje indicando que se creó el informe.
     
     -Búsqueda de Informe: Accede a la ruta /buscar-informe y utiliza el formulario de búsqueda para buscar informes existentes. Prueba diferentes combinaciones de criterios de búsqueda y verifica que los resultados se muestren correctamente.
+
+    -Contacto: Accede a la ruta /contacto y utiliza el formulario de contacto para enviar un mensaje al equipo de la página de informes de accidentes aéreos. Verifica que el mensaje se envíe correctamente y que se muestre un mensaje de confirmación.
 
 # Requisitos del Sistema
 
@@ -52,11 +57,8 @@ Si deseas contribuir a la página de informes de accidentes aéreos, sigue los s
     -Asegúrate de describir detalladamente tus cambios y las motivaciones detrás de ellos.
     -Espera a que tus cambios sean revisados y fusionados.
 
-# Licencia
-
-La página de informes de accidentes aéreos se distribuye bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más información.
 
 # Contacto
 
-Si tienes alguna pregunta, sugerencia o comentario relacionado con la página de informes de accidentes aéreos, puedes ponerte en contacto con nosotros en <correo electrónico o enlace de contacto>. Estaremos encantados de escuchar tus comentarios y responder a tus consultas.
+Si tienes alguna pregunta, sugerencia o comentario relacionado con la página de informes de accidentes aéreos, puedes ponerte en contacto con nosotros a traves del formulario en el sector "Contacto" de nuestra web. Estaremos encantados de escuchar tus comentarios y responder a tus consultas.
 
