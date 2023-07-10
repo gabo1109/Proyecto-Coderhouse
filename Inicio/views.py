@@ -39,3 +39,6 @@ def tabla_informes(request):
 
 def contacto(request):
     return render(request, 'inicio/contacto.html')  
+
+def about(request):
+    return render(request, 'inicio/about.html')  
