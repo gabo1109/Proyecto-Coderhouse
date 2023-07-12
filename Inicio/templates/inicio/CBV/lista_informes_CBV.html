@@ -16,10 +16,10 @@ LISTA DE INFORMES
 {{informes.fecha}}
 {{informes.locacion}}
 <button>
-<a href={% url 'Inicio:borrar' informes.id %}>Eliminar informe</a>
+<a href={% url 'Inicio:modificar' informes.id %}>Modificar informe</a>
 </button>
 <button>
-<a href={% url 'Inicio:modificar' informes.id %}>Modificar informe</a>
+<a href={% url 'Inicio:borrar' informes.id %}>Eliminar informe</a>
 </button>
 <button>
 <a href={% url 'Inicio:detalle' informes.id %}>Ver mas</a>

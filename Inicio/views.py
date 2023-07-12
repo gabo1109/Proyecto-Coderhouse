@@ -40,15 +40,15 @@ class ListaInformes(ListView):
     template_name = 'inicio/CBV/lista_informes_CBV.html'
     context_object_name = 'informe'
 
-class BorrarInforme(DeleteView):
-    model = Informe
-    template_name = 'inicio/CBV/borrar_informe_CBV.html'
-    success_url = reverse_lazy('Inicio:lista_informes')
-
 class ModificarInforme(UpdateView):
     model = Informe
     template_name = 'inicio/CBV/modificar_informe_CBV.html'
     fields = ['fecha','locacion', 'tipo_avion', 'causa_accidente','descripcion_accidente']
+    success_url = reverse_lazy('Inicio:lista_informes')
+
+class BorrarInforme(DeleteView):
+    model = Informe
+    template_name = 'inicio/CBV/borrar_informe_CBV.html'
     success_url = reverse_lazy('Inicio:lista_informes')
 
 class DetalleInforme(DetailView):
@@ -63,3 +63,4 @@ class FormularioContacto(CreateView):
 
 def contacto_creado(request):
     return render(request, 'Inicio/contacto_creado.html')
+
