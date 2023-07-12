@@ -1,26 +1,23 @@
 from django.shortcuts import render, redirect
 from Inicio.forms import CrearInforme, BuscarInforme, FormularioContacto, ModificarInforme
 from Inicio.models import Informe, Contacto
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
 def inicio(request):
     return render(request,'inicio/inicio.html')
 
-def crear_informe(request):
-    mensaje = ""
-    if request.method == "POST":
-        formulario = CrearInforme(request.POST)
-        if formulario.is_valid():
-            info = formulario.cleaned_data
-            informe = Informe(numero_caso = info['numero_caso'], fecha = info['fecha'], locacion = info['locacion'], tipo_avion = info['tipo_avion'], causa_accidente = info['causa_accidente'], descripcion_accidente = info['descripcion_accidente'])
-            informe.save()
-            mensaje = f"Informe {info['numero_caso']} creado correctamente"
-        else:
-            return render(request, 'inicio/crear_informe.html', {'formulario': formulario})
+def about(request):
+    return render(request, 'inicio/about.html')  
 
-    formulario = CrearInforme()
-    return render(request, 'inicio/crear_informe.html', {'formulario': formulario, 'mensaje':mensaje})
+class CrearInforme(CreateView):
+    model = Informe
+    template_name = 'inicio/CBV/crear_informe_CBV.html'
+    fields = ['numero_caso', 'fecha','locacion', 'tipo_avion', 'causa_accidente','descripcion_accidente']
+    success_url = reverse_lazy('Inicio:crear_informe')
 
 def buscar_informe(request):
     formulario = BuscarInforme(request.GET)
@@ -37,59 +34,27 @@ def buscar_informe(request):
 def tabla_informes(request):    
     return render(request, 'inicio/tabla_informes.html')
 
-def contacto(request):
-    formulario = FormularioContacto()
-    if request.method == "POST":
-        formulario = FormularioContacto(request.POST)
-        if formulario.is_valid():
-            info = formulario.cleaned_data
-            formulario = Contacto(nombre = info['nombre'], email = info['email'], mensaje = info['mensaje'], telefono = info['telefono'], fecha = info['fecha'])
-            formulario.save()
-        else:
-            return render(request, 'inicio/contacto.html', {'formulario': formulario})
+class ListaInformes(ListView):
+    model = Informe
+    template_name = 'inicio/CBV/lista_informes_CBV.html'
+    context_object_name = 'informe'
 
-    formulario = FormularioContacto()
-    return render(request, 'inicio/contacto.html', {'formulario': formulario})  
+class BorrarInforme(DeleteView):
+    model = Informe
+    template_name = 'inicio/CBV/borrar_informe_CBV.html'
+    success_url = reverse_lazy('Inicio:lista_informes')
 
-def about(request):
-    return render(request, 'inicio/about.html')  
+class ModificarInforme(UpdateView):
+    model = Informe
+    template_name = 'inicio/CBV/modificar_informe_CBV.html'
+    fields = ['fecha','locacion', 'tipo_avion', 'causa_accidente','descripcion_accidente']
+    success_url = reverse_lazy('Inicio:lista_informes')
 
-def borrar_informe(request, informe_id):
-    informe = Informe.objects.get(id=informe_id)
-    informe.delete()
-    return redirect('Inicio:tabla_informes')
-
-def modificar_informe(request, informe_id):
-    informe_modificado = Informe.objects.get(id=informe_id)
-    if request.method == 'POST':
-        formulario = ModificarInforme(request.POST)
-        if formulario.is_valid():
-            info = formulario.cleaned_data
-            informe_modificado.fecha = info['fecha']
-            informe_modificado.locacion = info['locacion']
-            informe_modificado.tipo_avion = info['tipo_avion']
-            informe_modificado.causa_accidente = info['causa_accidente']
-            informe_modificado.descripcion_accidente = info['descripcion_accidente']
-            informe_modificado.save()
-            return redirect('Inicio:lista_informes')
-        else:
-            return render(request, 'Inicio/modificar_informe.html', {'formulario':formulario})
-    
-    formulario = ModificarInforme(initial={'fecha':informe_modificado.fecha, 'locacion':informe_modificado.locacion, 'tipo_avion':informe_modificado.tipo_avion, 'causa_accidente':informe_modificado.causa_accidente, 'descripcion_accidente':informe_modificado.descripcion_accidente})
-    return render(request, 'Inicio/modificar_informe.html', {'formulario':formulario})
-    return redirect('Inicio:tabla_informes')
+class FormularioContacto(CreateView):
+    model = Contacto
+    template_name = 'inicio/CBV/contacto_CBV.html'
+    fields = ['nombre', 'email', 'mensaje', 'telefono','fecha']
+    success_url = reverse_lazy('Inicio:crear_informe')
 
 def contacto_creado(request):
     return render(request, 'Inicio/contacto_creado.html')
-
-def lista_informes(request):
-    formulario = BuscarInforme(request.GET)
-    informe_encontrado = None
-    if formulario.is_valid():
-        numero_caso = formulario.cleaned_data['numero_caso']
-        informe_encontrado = Informe.objects.all()
-    else:
-        print ("Error")
-
-    formulario = BuscarInforme()
-    return render(request, 'inicio/lista_informes.html', {'formulario': formulario, 'informe': informe_encontrado})

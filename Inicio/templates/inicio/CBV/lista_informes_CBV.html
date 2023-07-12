@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title> Lista de informes </title> 
+{% endblock title_head %}
+
+{% block h1_header %}
+LISTA DE INFORMES
+{% endblock h1_header %}
+
+{% block h2_header %}
+{% if informe %}
+<h2>Detalles del Informe:</h2>
+<ul>{% for informes in informe %}
+{{informes}}
+<button>
+<a href={% url 'Inicio:borrar' informes.id %}>Eliminar informe</a>
+</button>
+<button>
+<a href={% url 'Inicio:modificar' informes.id %}>Modificar informe</a>
+</button>
+{% endfor %}
+</ul>
+{% else %} <p> No se encontro el numero de caso </p>
+{% endif %}
+{% endblock h2_header %} 
