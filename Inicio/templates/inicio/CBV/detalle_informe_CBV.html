@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title> Detalle de informe </title> 
+{% endblock title_head %}
+
+{% block h1_header %}
+DETALLE DE INFORME {{informe.numero_caso}}
+{% endblock h1_header %}
+
+{% block h2_header %}
+<table>
+<li>Numero de caso = {{informe.numero_caso}}</li>
+<li>Fecha = {{informe.fecha}}</li>
+<li>Locacion = {{informe.locacion}}</li> 
+<li>Tipo de avion = {{informe.tipo_avion}}</li>
+<li>Causa de accidente = {{informe.causa_accidente}}</li>
+<li>Descripcion de accidente = {{informe.descripcion_accidente}}</li>
+</table>
+{% endblock h2_header %}

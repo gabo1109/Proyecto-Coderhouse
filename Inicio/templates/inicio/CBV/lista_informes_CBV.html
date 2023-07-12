@@ -10,14 +10,19 @@ LISTA DE INFORMES
 
 {% block h2_header %}
 {% if informe %}
-<h2>Detalles del Informe:</h2>
+<h2>Lista de informes:</h2>
 <ul>{% for informes in informe %}
-{{informes}}
+{{informes.numero_caso}}
+{{informes.fecha}}
+{{informes.locacion}}
 <button>
 <a href={% url 'Inicio:borrar' informes.id %}>Eliminar informe</a>
 </button>
 <button>
 <a href={% url 'Inicio:modificar' informes.id %}>Modificar informe</a>
+</button>
+<button>
+<a href={% url 'Inicio:detalle' informes.id %}>Ver mas</a>
 </button>
 {% endfor %}
 </ul>

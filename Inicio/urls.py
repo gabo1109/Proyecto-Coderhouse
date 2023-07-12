@@ -15,5 +15,6 @@ urlpatterns = [
     path('lista_informes/', views.ListaInformes.as_view(), name='lista_informes'),
     path('borrar/<int:pk>/', views.BorrarInforme.as_view(), name='borrar'),
     path('modificar/<int:pk>/', views.ModificarInforme.as_view(), name='modificar'),
-    path('contacto/', views.FormularioContacto.as_view(), name='contacto')
+    path('contacto/', views.FormularioContacto.as_view(), name='contacto'),
+    path('<int:pk>/', views.DetalleInforme.as_view(), name='detalle')
 ]

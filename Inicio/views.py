@@ -3,6 +3,7 @@ from Inicio.forms import CrearInforme, BuscarInforme, FormularioContacto, Modifi
 from Inicio.models import Informe, Contacto
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -49,6 +50,10 @@ class ModificarInforme(UpdateView):
     template_name = 'inicio/CBV/modificar_informe_CBV.html'
     fields = ['fecha','locacion', 'tipo_avion', 'causa_accidente','descripcion_accidente']
     success_url = reverse_lazy('Inicio:lista_informes')
+
+class DetalleInforme(DetailView):
+    model = Informe
+    template_name = 'inicio/CBV/detalle_informe_CBV.html'
 
 class FormularioContacto(CreateView):
     model = Contacto
