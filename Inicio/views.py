@@ -42,3 +42,8 @@ def contacto(request):
 
 def about(request):
     return render(request, 'inicio/about.html')  
+
+def borrar_informe(request, informe_id):
+    informe = Informe.objects.get(id=informe_id)
+    informe.delete()
+    return redirect('Inicio:tabla_informes')

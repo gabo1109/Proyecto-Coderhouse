@@ -19,7 +19,7 @@ BUSCAR INFORME
 <ul>{% for informes in informe %}
 {{informes}}
 <button>
-<a href={% url 'Inicio:borrar' informes.id %}>Eliminar</a>
+<a href={% url 'Inicio:borrar' informes.id %}>Eliminar informe</a>
 </button>
 {% endfor %}
 </ul>
