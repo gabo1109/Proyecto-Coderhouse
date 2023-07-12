@@ -38,26 +38,7 @@ def tabla_informes(request):
     return render(request, 'inicio/tabla_informes.html')
 
 def contacto(request):
-    mensaje_contacto = ""
-    if request.method == "POST":
-        formulario1 = FormularioContacto(request.POST)
-        if formulario1.is_valid():
-            info1 = formulario1.cleaned_data
-            informe1 = Contacto(nombre=info1['nombre'], email=info1['email'], mensaje=info1['mensaje'], telefono=info1['telefono'], fecha=info1['fecha'])
-            informe1.save()
-            return render(request, 'inicio/mensaje_enviado.html')
-    else:
-        formulario1 = FormularioContacto()  
-
-    return render(request, 'inicio/contacto.html', {'formulario1': formulario1, 'mensaje': mensaje_contacto})
-
-def mensaje_enviado(request):    
-    return render(request, 'inicio/mensaje_enviado.html')   
+    return render(request, 'inicio/contacto.html')  
 
 def about(request):
-    return render(request, 'inicio/about.html')
-
-def borrar_informe(request, informe_id):
-    informe = Informe.objects.get(id=informe_id)
-    informe.delete()
-    return redirect('Inicio:buscar_informe')
+    return render(request, 'inicio/about.html')  
