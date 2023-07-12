@@ -29,7 +29,7 @@ def buscar_informe(request):
         numero_caso = formulario.cleaned_data['numero_caso']
         informe_encontrado = Informe.objects.filter(numero_caso = numero_caso)
     else:
-        print ("Error")
+        print ("Informe no encontrado")
 
     formulario = BuscarInformeFormulario()
     return render(request, 'inicio/buscar_informe.html', {'formulario': formulario, 'informe': informe_encontrado})
@@ -56,3 +56,8 @@ def mensaje_enviado(request):
 
 def about(request):
     return render(request, 'inicio/about.html')
+
+def borrar_informe(request, informe_id):
+    informe = Informe.objects.get(id=informe_id)
+    informe.delete()
+    return redirect('Inicio:buscar_informe')

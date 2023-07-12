@@ -10,5 +10,6 @@ urlpatterns = [
     path('tabla/', views.tabla_informes, name='tabla_informes'),
     path('contacto/', views.contacto, name='contacto'),
     path('mensaje_enviado/', views.mensaje_enviado, name='mensaje_enviado'),
-    path('about/', views.about, name='about')
+    path('about/', views.about, name='about'),
+    path('borrar/<int:informe_id>/', views.borrar_informe, name='borrar')
 ]

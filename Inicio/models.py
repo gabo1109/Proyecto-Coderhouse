@@ -10,6 +10,9 @@ class Informe(models.Model):
     causa_accidente = models.CharField(max_length = 1000)
     descripcion_accidente = models.CharField(max_length = 1000)
 
+    def __str__(self):
+        return f"Numero de caso: {self.numero_caso} - Fecha: {self.fecha} - Locacion: {self.locacion} - Tipo: {self.tipo_avion} - Causa: {self.causa_accidente} - Descripcion: {self.descripcion_accidente}"
+
 class Contacto(models.Model):
     nombre = models.CharField(max_length = 100)
     email = models.CharField(max_length = 100)

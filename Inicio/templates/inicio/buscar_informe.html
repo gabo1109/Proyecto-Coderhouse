@@ -15,16 +15,14 @@ BUSCAR INFORME
 </form>
 
 {% if informe %}
-    <h2>Detalles del Informe:</h2>
-    <ul>
-      {% for informes in informe %}
-        <p>Número de caso: {{informes.numero_caso}}</p>
-        <p>Fecha de suceso: {{informes.fecha}}</p>
-        <p>Ubicación: {{informes.locacion}}</p>
-        <p>Tipo de avión: {{informes.tipo_avion}}</p>
-        <p>Causa: {{informes.causa_accidente}}</p>
-      {% endfor %}
-    </ul>
+<h2>Detalles del Informe:</h2>
+<ul>{% for informes in informe %}
+{{informes}}
+<button>
+<a href={% url 'Inicio:borrar' informes.id %}>Eliminar</a>
+</button>
+{% endfor %}
+</ul>
 {% else %} <p> No se encontro el numero de caso </p>
 {% endif %}
-{% endblock h2_header %}
+{% endblock h2_header %} 
