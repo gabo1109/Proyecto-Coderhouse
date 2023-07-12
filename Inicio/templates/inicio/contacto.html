@@ -9,9 +9,11 @@ CONTÁCTENOS
 {% endblock h1_header %}
 
 {% block h2_header %}
-<form action="" method="post">
+<form action={% url 'Inicio:contacto_creado' %} method="post">
   {% csrf_token %}
-  {{ formulario1.as_p }}
+  <table>  
+    {{ formulario.as_p }} 
+  </table>
   <button type="submit">Enviar</button>
 </form>
 {% endblock h2_header %}

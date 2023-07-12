@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title> Modificar </title> 
+{% endblock title_head %}
+
+{% block h1_header %}
+MODIFICAR ACCIDENTE
+{% endblock h1_header %}
+
+{% block h2_header %}
+<b>
+<p>{{mensaje}}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+         {{formulario.as_p}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock h2_header %}

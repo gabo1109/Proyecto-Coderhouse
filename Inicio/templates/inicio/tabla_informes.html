@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title> Tabla </title> 
+<title> Informes </title> 
 {% endblock title_head %}
 
 {% block h1_header %}
-BUSCAR INFORME
+INFORMES
 {% endblock h1_header %}
 
 {% block h2_header %}
-<button><a class="navbar-brand" href={% url 'Inicio:buscar_informe' %}>Buscar Informe</a></button>
+<button><a class="navbar-brand" href={% url 'Inicio:buscar_informe' %}>Buscar informe</a></button>
+<button><a class="navbar-brand" href={% url 'Inicio:lista_informes' %}>Lista de informes</a></button>
 {% endblock h2_header %}
