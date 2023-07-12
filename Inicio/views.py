@@ -71,10 +71,11 @@ def modificar_informe(request, informe_id):
             informe_modificado.causa_accidente = info['causa_accidente']
             informe_modificado.descripcion_accidente = info['descripcion_accidente']
             informe_modificado.save()
-            return redirect('Inicio:tabla_informes')
+            return redirect('Inicio:lista_informes')
         else:
             return render(request, 'Inicio/modificar_informe.html', {'formulario':formulario})
-    formulario = ModificarInforme
+    
+    formulario = ModificarInforme(initial={'fecha':informe_modificado.fecha, 'locacion':informe_modificado.locacion, 'tipo_avion':informe_modificado.tipo_avion, 'causa_accidente':informe_modificado.causa_accidente, 'descripcion_accidente':informe_modificado.descripcion_accidente})
     return render(request, 'Inicio/modificar_informe.html', {'formulario':formulario})
     return redirect('Inicio:tabla_informes')
 
