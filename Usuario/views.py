@@ -11,9 +11,9 @@ def login(request):
         if formulario.is_valid():
             usuario = formulario.cleaned_data['username']
             contraseña = formulario.cleaned_data['password']
-            user = authenticate(username = usaurio, password = contraseña)
+            user = authenticate(username = usuario, password = contraseña)
             ingreso_web(request, user)
-            return redirect('Inicio:inicio')
+            return redirect('Inicio:Inicio')
         else:
             return render(request, 'Usuario/login.html', {'formulario': formulario})
 
