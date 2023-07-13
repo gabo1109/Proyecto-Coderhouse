@@ -5,6 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.mixins import LoginRequiredMixin 
 
 # Create your views here.
 
@@ -34,8 +36,8 @@ def buscar_informe(request):
 
 def tabla_informes(request):    
     return render(request, 'inicio/tabla_informes.html')
-
-class ListaInformes(ListView):
+    
+class ListaInformes(LoginRequiredMixin, ListView):
     model = Informe
     template_name = 'inicio/CBV/lista_informes_CBV.html'
     context_object_name = 'informe'
@@ -54,7 +56,7 @@ class BorrarInforme(DeleteView):
 class DetalleInforme(DetailView):
     model = Informe
     template_name = 'inicio/CBV/detalle_informe_CBV.html'
-
+ 
 class FormularioContacto(CreateView):
     model = Contacto
     template_name = 'inicio/CBV/contacto_CBV.html'
