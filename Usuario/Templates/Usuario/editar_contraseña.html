@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title> Editar Contraseña </title> 
+{% endblock title_head %}
+
+{% block h1_header %}
+EDITAR CONTRASEÑA
+    <form action={% url 'Usuario:editar_contraseña' %} method="post">
+        {% csrf_token %}
+        <table>
+             {{form}}
+        </table>
+        <button>Editar Contraseña</button>
+    </form>
+{% endblock h1_header %}
