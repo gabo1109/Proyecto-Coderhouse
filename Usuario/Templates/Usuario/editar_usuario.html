@@ -6,7 +6,7 @@
 
 {% block h1_header %}
 EDITAR USUARIO
-    <form action={% url 'Usuario:editar_usuario' %} method="post">
+    <form action={% url 'Usuario:editar_usuario' %} method="post" enctype = 'multipart/form-data'>
         {% csrf_token %}
         <table>
              {{formulario}}

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from Usuario.forms import FormularioRegistro, EditarUsuario
 from django.urls import reverse_lazy
+from Usuario.models import InfoExtra
 
 # Create your views here.
 
@@ -18,6 +19,7 @@ def login(request):
             contraseña = formulario.cleaned_data['password']
             user = authenticate(username = usuario, password = contraseña)
             ingreso_web(request, user)
+            InfoExtra.objects.get_or_create(user = user)
             return redirect('Inicio:Inicio')
         else:
             return render(request, 'Usuario/login.html', {'formulario': formulario})
@@ -40,14 +42,18 @@ def registro(request):
 
 @login_required
 def editar_usuario(request):
-    
+    info_extra_user = request.user.infoextra
     if request.method == 'POST':
         formulario = EditarUsuario(request.POST, instance = request.user)
         if formulario.is_valid():
+            avatar = formulario.cleaned_data.get['avatar']
+            if avatar: 
+                info_extra_user.avatar = avatar
+                info_extra_user.save()  
             formulario.save()
             return redirect ('Usuario:usuario_editado')
     else:       
-        formulario = EditarUsuario(instance = request.user)
+        formulario = EditarUsuario(initial = {'avatar': info_extra_user.avatar}, instance = request.user)
 
     return render (request, 'Usuario/editar_usuario.html', {'formulario': formulario})
 
