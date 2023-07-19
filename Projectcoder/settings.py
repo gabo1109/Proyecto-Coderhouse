@@ -130,3 +130,4 @@ LOGIN_URL = '/Usuario/login/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+IMAGENES_ROOT = os.path.join(BASE_DIR, 'imagenes')

@@ -7,6 +7,7 @@ from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.mixins import LoginRequiredMixin 
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 # Create your views here.
 
@@ -14,7 +15,9 @@ def inicio(request):
     return render(request,'inicio/inicio.html')
 
 def about(request):
-    return render(request, 'inicio/about.html')  
+    mensaje = "Autor de la web"
+    imagen = staticfiles_storage.url('media/imagenes/cv.jpg')
+    return render(request, 'inicio/about.html', {'mensaje':mensaje, 'imagen':imagen})  
 
 class CrearInforme(CreateView):
     model = Informe

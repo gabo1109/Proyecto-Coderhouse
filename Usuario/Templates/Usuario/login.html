@@ -6,16 +6,20 @@
 
 {% block h1_header %}
 LOGIN
+<br>
+<br>
+<br>
+    <p>{{mensaje}}</p>
+    <form action={% url 'Usuario:login' %} method="post">
+        {% csrf_token %}
+        <table>
+             {{formulario}}
+        </table>
+        <br>
+        <button>Login</button>
+    </form>
 {% endblock h1_header %}
 
 {% block h2_header %}
-<b>
-<p>{{mensaje}}</p>
-<form action={% url 'Usuario:login' %} method="post">
-    {% csrf_token %}
-    <table>
-         {{formulario}}
-    </table>
-    <button>Login</button>
-</form>
+
 {% endblock h2_header %}
