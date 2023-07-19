@@ -42,11 +42,11 @@ def registro(request):
 
 @login_required
 def editar_usuario(request):
-    info_extra_user = request.user.infoextra
+    info_extra_user = request.user.infoextra 
     if request.method == 'POST':
-        formulario = EditarUsuario(request.POST, instance = request.user)
+        formulario = EditarUsuario(request.POST, request.FILES, instance = request.user)
         if formulario.is_valid():
-            avatar = formulario.cleaned_data.get['avatar']
+            avatar = formulario.cleaned_data.get('avatar')
             if avatar: 
                 info_extra_user.avatar = avatar
                 info_extra_user.save()  
