@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title_head %}
+<title> About </title>
+{% endblock title_head %}
 
 {% block h1_header %}
 ACERCA DE NOSOTROS
 <html>
 <head>
-    {% block title_head %}
-    <title> About </title>
-    {% endblock title_head %}
-    
     <style>
         p {
             text-align: left;
@@ -29,15 +30,15 @@ ACERCA DE NOSOTROS
         
     <p>Explora nuestros informes, adquiere conocimientos y profundiza en la historia de los accidentes aéreos. Te invitamos a sumergirte en nuestro contenido y descubrir más sobre este fascinante y crítico campo. <br>
         
-    <h4 style="text-align: center;">¡Gracias por visitar nuestra página de Informes de Accidentes Aéreos!</h4>
     </h10>
 </body>
 </html>
 {% endblock h1_header %}
 
 {% block h2_header %}
-<h1>{{mensaje}}</h1>
+<h1 style="color: black;">{{mensaje}}</h1>
+<br>
 <div class="image-container">
-    <img src="{{ imagen }}" alt="Imagen">
+    <img src="{% static 'assets/img/cv.jpg' %}" alt="Imagen" height = "700px">
 </div>
 {% endblock h2_header %}
