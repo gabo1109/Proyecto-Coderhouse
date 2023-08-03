@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block h1_header %}
+  <h1>Información del usuario</h1>
+  <p>Nombre de usuario: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+
+  <a href={% url 'Usuario:editar_usuario' %} class="btn btn-primary">Editar</a>
+  <a href={% url 'Inicio:Inicio' %} class="btn btn-secondary">Inicio</a>
+{% endblock h1_header %}

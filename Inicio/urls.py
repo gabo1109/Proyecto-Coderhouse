@@ -16,5 +16,6 @@ urlpatterns = [
     path('borrar/<int:pk>/', views.BorrarInforme.as_view(), name='borrar'),
     path('modificar/<int:pk>/', views.ModificarInforme.as_view(), name='modificar'),
     path('contacto/', views.FormularioContacto.as_view(), name='contacto'),
-    path('<int:pk>/', views.DetalleInforme.as_view(), name='detalle')
+    path('<int:pk>/', views.DetalleInforme.as_view(), name='detalle'),
+    path('perfil_usuario/', views.PerfilUsuario.as_view(), name='perfil_usuario')
 ]

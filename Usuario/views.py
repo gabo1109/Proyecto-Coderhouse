@@ -20,7 +20,7 @@ def login(request):
             user = authenticate(username = usuario, password = contraseña)
             ingreso_web(request, user)
             InfoExtra.objects.get_or_create(user = user)
-            return redirect('Inicio:Inicio')
+            return redirect('Inicio:perfil_usuario')
         else:
             return render(request, 'Usuario/login.html', {'formulario': formulario})
 

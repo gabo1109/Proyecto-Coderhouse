@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from Inicio.forms import CrearInforme, BuscarInforme, FormularioContacto, ModificarInforme
 from Inicio.models import Informe, Contacto
+from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -64,6 +65,9 @@ class FormularioContacto(CreateView):
     template_name = 'inicio/CBV/contacto_CBV.html'
     fields = ['nombre', 'email', 'mensaje', 'telefono','fecha']
     success_url = reverse_lazy('Inicio:crear_informe')
+
+class PerfilUsuario(LoginRequiredMixin, TemplateView):
+    template_name = 'inicio/CBV/perfil_usuario_CBV.html'
 
 def contacto_creado(request):
     return render(request, 'Inicio/contacto_creado.html')
