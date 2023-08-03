@@ -40,6 +40,7 @@ def registro(request):
     formulario = FormularioRegistro()
     return render (request, 'Usuario/registro.html', {'formulario': formulario})   
 
+
 @login_required
 def editar_usuario(request):
     info_extra_user = request.user.infoextra 

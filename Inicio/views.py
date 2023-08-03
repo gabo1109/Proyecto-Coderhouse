@@ -18,11 +18,11 @@ def about(request):
     mensaje = "Autor de la web"
     return render(request, 'inicio/about.html', {'mensaje':mensaje})  
 
-class CrearInforme(CreateView):
+class CrearInforme(LoginRequiredMixin, CreateView):
     model = Informe
     template_name = 'inicio/CBV/crear_informe_CBV.html'
     fields = ['numero_caso', 'fecha','locacion', 'tipo_avion', 'causa_accidente','descripcion_accidente']
-    success_url = reverse_lazy('Inicio:crear_informe')
+    success_url = reverse_lazy('Inicio:lista_informes')
 
 def buscar_informe(request):
     formulario = BuscarInforme(request.GET)

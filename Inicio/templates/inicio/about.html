@@ -2,43 +2,41 @@
 {% load static %}
 
 {% block title_head %}
-<title> About </title>
+<title>Acerca de nosotros</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-ACERCA DE NOSOTROS
-<html>
-<head>
-    <style>
-        p {
-            text-align: left;
-            margin-left: 0;
-        }
-    </style>
-</head>
-<body>
-    <h4> ¡Bienvenido a nuestra página de Informes de Accidentes Aéreos! </h4>
-    <br>
-    <h10>
-    <p>En nuestra plataforma, nos dedicamos a recopilar y brindar información precisa sobre accidentes aéreos de todo el mundo. Nuestro objetivo es proporcionar un recurso confiable y accesible para aquellos interesados en aprender más sobre estos incidentes. </p>
-    
-    <p>Aquí encontrarás una variedad de informes detallados que abarcan diversos aspectos de los accidentes aéreos. Nuestro equipo de expertos se asegura de recopilar datos precisos y relevantes para ofrecer una visión completa de cada accidente. </p>
-        
-    <p>Además de proporcionar informes exhaustivos, también ofrecemos una funcionalidad de búsqueda que te permite filtrar y encontrar informes específicos basados en tus criterios de interés. Ya sea que estés investigando accidentes aéreos pasados o estés interesado en estadísticas y tendencias, nuestra página te ayudará a encontrar la información que necesitas. </p>
-        
-    <p>Valoramos la importancia de la transparencia y la educación en la aviación, y estamos comprometidos a brindar una plataforma informativa y de fácil acceso para todos los usuarios. Si tienes alguna pregunta, sugerencia o comentario, no dudes en ponerte en contacto con nosotros a través de nuestro formulario de contacto. Tu opinión es fundamental para seguir mejorando y ampliando nuestra plataforma. </p>
-        
-    <p>Explora nuestros informes, adquiere conocimientos y profundiza en la historia de los accidentes aéreos. Te invitamos a sumergirte en nuestro contenido y descubrir más sobre este fascinante y crítico campo. <br>
-        
-    </h10>
-</body>
-</html>
-{% endblock h1_header %}
+<section class="about-us">
+  <h1>ACERCA DE NOSOTROS</h1>
+  <p>
+    ¡Bienvenido a nuestra página de Informes de Accidentes Aéreos!
+  </p>
 
-{% block h2_header %}
-<h1 style="color: black;">{{mensaje}}</h1>
-<br>
-<div class="image-container">
-    <img src="{% static 'assets/img/cv.jpg' %}" alt="Imagen" height = "700px">
-</div>
-{% endblock h2_header %}
+  <p>
+    En nuestra plataforma, nos dedicamos a recopilar y brindar información precisa sobre accidentes aéreos de todo el mundo. Nuestro objetivo es proporcionar un recurso confiable y accesible para aquellos interesados en aprender más sobre estos incidentes.
+  </p>
+
+  <p>
+    Aquí encontrarás una variedad de informes detallados que abarcan diversos aspectos de los accidentes aéreos. Nuestro equipo de expertos se asegura de recopilar datos precisos y relevantes para ofrecer una visión completa de cada accidente.
+  </p>
+
+  <p>
+    Además de proporcionar informes exhaustivos, también ofrecemos una funcionalidad de búsqueda que te permite filtrar y encontrar informes específicos basados en tus criterios de interés. Ya sea que estés investigando accidentes aéreos pasados o estés interesado en estadísticas y tendencias, nuestra página te ayudará a encontrar la información que necesitas.
+  </p>
+
+  <p>
+    Valoramos la importancia de la transparencia y la educación en la aviación, y estamos comprometidos a brindar una plataforma informativa y de fácil acceso para todos los usuarios. Si tienes alguna pregunta, sugerencia o comentario, no dudes en ponerte en contacto con nosotros a través de nuestro formulario de contacto. Tu opinión es fundamental para seguir mejorando y ampliando nuestra plataforma.
+  </p>
+
+  <p>
+    Explora nuestros informes, adquiere conocimientos y profundiza en la historia de los accidentes aéreos. Te invitamos a sumergirte en nuestro contenido y descubrir más sobre este fascinante y crítico campo.
+  </p>
+</section>
+
+<section class="image-section">
+  <h1 style="color: black;">{{ mensaje }}</h1>
+  <div class="image-container">
+    <img src="{% static 'assets/img/cv.jpg' %}" alt="Imagen" height="700px">
+  </div>
+</section>
+{% endblock h1_header %}

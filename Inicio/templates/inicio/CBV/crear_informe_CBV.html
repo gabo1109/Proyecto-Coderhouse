@@ -10,7 +10,6 @@ INFORMAR ACCIDENTE
 
 {% block h2_header %}
 <b>
-<p>{{mensaje}}</p>
 <form action={% url 'Inicio:crear_informe' %} method="post">
     {% csrf_token %}
     <table>

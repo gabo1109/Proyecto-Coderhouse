@@ -42,6 +42,7 @@ Sigue los siguientes pasos para configurar y ejecutar la aplicación:
 
 # Contribuciones
 Si deseas contribuir a la página de informes de accidentes aéreos, sigue los siguientes pasos:
+
     -Haz un fork del repositorio.
     -Crea una rama para tu contribución.
     -Realiza tus cambios y mejoras en la rama creada.
