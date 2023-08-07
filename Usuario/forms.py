@@ -19,6 +19,7 @@ class EditarUsuario(UserChangeForm):
     last_name = forms.CharField(label = "Apellido", max_length = 30)
     email = forms.EmailField(label = "Email")
     avatar = forms.ImageField(required = False)
+    legajo = forms.IntegerField(label = "Legajo", min_value = 0)
 
     class Meta:
         model = User
