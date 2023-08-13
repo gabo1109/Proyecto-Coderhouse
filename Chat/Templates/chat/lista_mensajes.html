@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title> Lista de mensajes </title> 
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Mis Mensajes</h1>
+  <br>
+  <ul>
+    {% for chat in mensajes %}
+      <li>{{ chat.emisor }}: {{ chat.mensaje }}</li>
+    {% endfor %}
+  </ul>
+{% endblock h1_header %}

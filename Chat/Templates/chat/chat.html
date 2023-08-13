@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title> Chat </title> 
+{% endblock title_head %}
+
+{% block h1_header %}
+
+  <h1>Chat</h1>
+  <br>
+  <a href={% url 'Chat:enviar_mensaje' %} class="btn btn-primary">Enviar Mensaje</a>
+  <a href={% url 'Chat:lista_mensajes' %} class="btn btn-primary">Lista de Mensajes</a>
+
+{% endblock h1_header %}

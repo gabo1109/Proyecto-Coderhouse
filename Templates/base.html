@@ -27,6 +27,7 @@
                     <a class="navbar-brand" href={% url 'Inicio:crear_informe' %}>Informar Accidente</a>
                     <a class="navbar-brand" href={% url 'Inicio:tabla_informes' %}>Informes</a>
                     <a class="navbar-brand" href={% url 'Inicio:contacto' %}>Contacto</a>
+                    <a class="navbar-brand" href={% url 'Chat:chat' %}>Chat</a>
                     {% if request.user.is_authenticated %}
                     {% if request.user.infoextra.avatar %}
                     <img src = {{request.user.infoextra.avatar.url}} alt = "" height = '40px'>

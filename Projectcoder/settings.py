@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Inicio',
     'Usuario',
-    'ckeditor'
+    'ckeditor',
+    'Chat'
 ]
 
 MIDDLEWARE = [
