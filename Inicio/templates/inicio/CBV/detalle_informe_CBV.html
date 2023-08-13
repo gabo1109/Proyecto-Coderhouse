@@ -15,6 +15,6 @@ DETALLE DE INFORME {{informe.numero_caso}}
 <li>Locacion = {{informe.locacion}}</li> 
 <li>Tipo de avion = {{informe.tipo_avion}}</li>
 <li>Causa de accidente = {{informe.causa_accidente}}</li>
-<li>Descripcion de accidente = {{informe.descripcion_accidente}}</li>
+<li>Descripcion de accidente = {{informe.descripcion_accidente | safe}}</li>
 </table>
 {% endblock h2_header %}

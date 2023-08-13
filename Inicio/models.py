@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Informe(models.Model):
     locacion = models.CharField(max_length = 100)
     tipo_avion = models.CharField(max_length = 100)
     causa_accidente = models.CharField(max_length = 1000)
-    descripcion_accidente = models.CharField(max_length = 1000)
+    descripcion_accidente = RichTextField(max_length = 100, null = True)
 
     def __str__(self):
         return f"Numero de caso: {self.numero_caso} - Fecha: {self.fecha} - Locacion: {self.locacion} - Tipo: {self.tipo_avion} - Causa: {self.causa_accidente} - Descripcion: {self.descripcion_accidente}"
